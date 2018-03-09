@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"   
+"http://mybatis.org/dtd/mybatis-3-config.dtd">  
+  
+<!-- 注意：每个标签必须按顺序写，不然蛋疼的DTD会提示错误：
+The content of element type "configuration" must match 
+"(properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,
+objectWrapperFactory?,plugins?,environments?,mappers?)". -->  
+<configuration>  
+    <!-- 属性配置 -->  
+    <properties resource="config/properties/jdbc.properties">  
+        <!-- 相同属性:最高优先级的属性是那些作为方法参数的，然后是资源/url 属性，
+        	最后是 properties元素中指定的属性 -->  
+        <property name="username" value="root"/>  
+        <property name="password" value="123qwe"/>  
+    </properties>  
+      
+    <!-- 设置缓存和延迟加载等等重要的运行时的行为方式 -->  
+    <settings>  
+        <!-- 设置超时时间，它决定驱动等待一个数据库响应的时间  -->  
+        <setting name="defaultStatementTimeout" value="25000"/>  
+    </settings>  
+      
+    <!-- 别名 -->  
+    <typeAliases>  
+        <typeAlias alias="userMap" type="com.chenqk.springmvc.entity.UserMessage"/>
+        <typeAlias alias="treeMap" type="com.chenqk.springmvc.entity.Tree"/>  
+    </typeAliases>  
+      
+    <environments default="development">  
+        <!-- environment 元素体中包含对事务管理和连接池的环境配置 -->  
+        <environment id="development">  
+            <transactionManager type="JDBC" />  
+            <!-- type分三种：  
+                    UNPOOLED是每次被请求时简单打开和关闭连接   
+                    UNPOOLED的数据源仅仅用来配置以下 4 种属性driver，url，username，password  
+                    POOLED ：JDBC连接对象的数据源连接池的实现，不直接支持第三方数据库连接池  
+            -->  
+            <dataSource type="POOLED">  
+                <property name="driver" value="${driver}" />  
+                <property name="url" value="${url}" />  
+                <property name="username" value="${username}" />  
+                <property name="password" value="${password}" />  
+            </dataSource>  
+        </environment>  
+    </environments>  
+      
+    <!-- ORM映射文件 -->  
+    <mappers>
+    	<mapper resource="com/chenqk/springmvc/mapper/user-mapper.xml"/> 
+    	<mapper resource="com/chenqk/springmvc/mapper/tree-mapper.xml"/> 
+    </mappers>
+      
+</configuration>

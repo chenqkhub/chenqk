@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>站点专题</title>
+
+<!-- BEGIN THEME STYLES -->
+<link href="../../resource/style/excellenceblue/css/application.min.css"
+	rel="stylesheet">
+<link href="../../resource/style/excellenceblue/css/style.css"
+	rel="stylesheet">
+<!-- END THEME STYLES -->
+
+<!-- jquery and friends -->
+<script src="../../resource/plugins/jquery/jquery-2.x.min.js"></script>
+<link rel="SHORTCUT ICON" href="../../resource/images/icons/dwxt.ico">
+<!-- fusionCharts -->
+<script type="text/javascript"
+	src="../../resource/fusioncharts/js/FusionCharts.js"></script>
+<!-- jquery -->
+<script type="text/javascript"
+	src="../../resource/jquery/js/jquery-2.x.min.js"></script>
+<!-- owner -->
+<link rel="stylesheet" type="text/css" href="css/site.css">
+<script type="text/javascript" src="js/usersite.js"></script>
+<script type="text/javascript" src="../util/dateplugin.js"></script>
+<script type="text/javascript" src="../util/areaplugin.js"></script>
+<script type="text/javascript" src="../util/gridplugin.js"></script>
+<script type="text/javascript" src="../util/tagplugin.js"></script>
+<script type="text/javascript" src="../util/util.js"></script>
+
+<!-- 时间控件 -->
+<script type="text/javascript"
+	src="../../resource/My97DatePicker/WdatePicker.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="../../resource/flexigrid/css/flexigrid.css">
+<link rel="stylesheet" type="text/css"
+	href="../../resource/flexigrid/css/imagebutton.css">
+<link rel="SHORTCUT ICON" href="../../resource/images/icons/dwxt.ico">
+<!-- flexigrid-css -->
+<link rel="stylesheet" type="text/css"
+	href="../../resource/flexigrid/css/flexigrid.css">
+<link rel="stylesheet" type="text/css"
+	href="../../resource/flexigrid/css/imagebutton.css">
+
+<!-- flexigrid-js -->
+<script src="../../resource/flexigrid/js/flexigrid.js"></script>
+
+<!-- 移动淡出div  要求：样式 名称为 class="SHOW_HEAD" -->
+<script type="text/javascript" src="../../common/movediv.js"></script>
+<script type="text/javascript"
+	src="../../resource/myplugin/form.validate/myFormValidate.js"></script>
+<script type="text/javascript"
+	src="../../resource/myplugin/messagebox/messagebox.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var curUrl = document.location.href;
+		if(curUrl.indexOf("place=") != -1){
+			$(".bodyimg").css("display","block");
+		}
+	});
+</script>
+</head>
+
+<body class="background-dark" style="background:transparent">
+	<div class="bodyimg" style="display:none">
+		<img src="../../resource/style/excellenceblue/images/index/bodybg.png"
+			alt="">
+	</div>
+	<!--++++++++++++++++++++++++++++++++++  弹窗开始++++++++++++++++++++++++++++-->
+
+
+	<div class="SHOW_WINDOW" style="display:none;">
+		<div class="SHOW_HEAD">
+			<div class='SHOW_TITLE'>
+				<span style="font-size: 20px;"></span>
+			</div>
+			<div class="SHOW_CLOSE" title="关闭"></div>
+		</div>
+		<div class="SHOW_BODY">
+						<div class="" id="line_show"></div>
+
+		</div>
+	</div>
+
+	<!--++++++++++++++++++++++++++++++++++ 弹窗结束++++++++++++++++++++++++++++-->
+	<div class="wrap sidebar-icons">
+		<div class="content container">
+			<div class="row bg_center"></div>
+
+			<!-- 整个div -->
+			<div class="row">
+
+				<!-- 左侧div -->
+				<div class="col-md-3">
+					<section class="widget" style="margin-right: 1px">
+						<fieldset>
+							<legend>
+								<small>时间</small>
+							</legend>
+							<div class="dateplugin"></div>
+						</fieldset>
+						<fieldset>
+							<legend>
+								<small>区域</small>
+							</legend>
+							<div class="areaplugin"></div>
+						</fieldset>
+
+						<fieldset>
+							<legend>
+								<small>标签</small>
+							</legend>
+							<div class="tagplugin"></div>
+						</fieldset>
+
+						<fieldset>
+							<legend>
+								<small>资源列表</small>
+							</legend>
+							<div class="gridplugin"></div>
+						</fieldset>
+
+					</section>
+				</div>
+				<!-- 右侧div -->
+				<div class="col-md-9" id="tongji">
+					<section class="widget widget-tabs">
+
+						<header>
+							<ul class="nav nav-tabs">
+								<li class="active" id="type_li"><a href="#stats"
+									data-toggle="tab">图形</a></li>
+								<li id="table_li"><a href="#report" data-toggle="tab">列表</a>
+								</li>
+								<li id="selectUserType">
+									<div class="btn-group" data-toggle="buttons">
+										<label class="btn btn-primary active" id="usernum"> <input
+											type="radio" name="options" id="option2" />访客数
+										</label> <label class="btn btn-primary" id="visitnum"> <input
+											type="radio" name="options" id="option3" />访问次数
+										</label>
+									</div>
+								</li>
+
+							</ul>
+						</header>
+
+						<div class="body tab-content">
+							<div id="stats" class="tab-pane active clearfix">
+								<fieldset>
+									<legend>
+										<small class="app_small_css1">站点分类对比</small> <small
+											class="app_small_css">站点应用对比<span id="typeSpan"></span></small>
+
+									</legend>
+									<div id="usersiteTypePie" style="float:left"></div>
+									<div id="userAppColumn"></div>
+								</fieldset>
+								<fieldset>
+									<legend>
+										<small>站点分类日趋势</small>
+									</legend>
+									<div style="margin-left: 20px;margin-top: 10px;"
+										id="usersiteTypeTrend"></div>
+								</fieldset>
+							</div>
+
+							<div id="report" class="tab-pane">
+								<fieldset>
+									<legend>
+										<small class="app_small_css1">站点分类对比</small> <small
+											class="app_small_css2">站点应用对比<span id="typeSpan1"></span></small>
+									</legend>
+									<div class="">
+										<div class="appTypeTable_css">
+											<table id="siteTypeTable">
+
+											</table>
+										</div>
+										<div class="appTable_css">
+											<table id="appTable">
+
+											</table>
+										</div>
+									</div>
+								</fieldset>
+
+								<fieldset>
+									<legend>
+										<small>站点分类日趋势</small>
+									</legend>
+									<div class="test">
+										<!--   访客数及访问次数-->
+										<table id="siteTypeDayTable" class="appTypeDayTable_css">
+
+										</table>
+									</div>
+								</fieldset>
+							</div>
+
+						</div>
+					</section>
+				</div>
+				<!-- 右侧div结束 -->
+			</div>
+		</div>
+	</div>
+	<!-- jquery plugins -->
+	<script src="../../resource/plugins/icheck.js/jquery.icheck.js"></script>
+	<!--backbone and friends -->
+	<script src="../../resource/plugins/backbone/underscore.js"></script>
+	<script src="../../resource/plugins/backbone/backbone-min.js"></script>
+	<script
+		src="../../resource/plugins/backbone/backbone.localStorage-min.js"></script>
+
+	<!-- bootstrap default plugins -->
+	<script src="../../resource/plugins/bootstrap/bootstrap-3.x.min.js"></script>
+	<!-- basic application js-->
+	<script src="../frame/js/app.js"></script>
+	<script src="../frame/js/frame_header.js"></script>
+	<script src="../frame/js/frame_sidebar.js"></script>
+
+	<!-- sidebar -->
+	<script type="text/template" id="settings-template">
+    <div class="setting clearfix">
+        <div>Background</div>
+        <div id="background-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+            {[ dark = background == 'dark'; light = background == 'light';]}
+            <button type="button" data-value="dark" class="btn btn-sm btn-transparent {[= dark? 'active' : '' ]}">Dark</button>
+            <button type="button" data-value="light" class="btn btn-sm btn-transparent {[= light? 'active' : '' ]}">Light</button>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>Sidebar on the</div>
+        <div id="sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+            {[ onRight = sidebar == 'right']}
+            <button type="button" data-value="left" class="btn btn-sm btn-transparent {[= onRight? '' : 'active' ]}">Left</button>
+            <button type="button" data-value="right" class="btn btn-sm btn-transparent {[= onRight? 'active' : '' ]}">Right</button>
+        </div>
+    </div>
+    <div class="setting clearfix">
+        <div>Sidebar</div>
+        <div id="display-sidebar-toggle" class="pull-left btn-group" data-toggle="buttons-radio">
+            {[ display = displaySidebar]}
+            <button type="button" data-value="true" class="btn btn-sm btn-transparent {[= display? 'active' : '' ]}">Show</button>
+            <button type="button" data-value="false" class="btn btn-sm btn-transparent {[= display? '' : 'active' ]}">Hide</button>
+        </div>
+    </div>
+</script>
+
+	<!-- sidebar -->
+	<script type="text/template" id="sidebar-settings-template">
+    {[ auto = sidebarState == 'auto']}
+    {[ if (auto) { ]}
+    	<a href="javascript:void(0);" class="btn-icons btn btn-transparent btn-sm"  data-value="icons" ><i class="fa icon-rightarr fs1"></i></a>
+			<a href="javascript:void(0);" class="btn-auto btn btn-transparent btn-sm" data-value="auto" ><i class="fa icon-leftarr fs1"></i></a>
+    
+    {[ } else { ]}
+    	<a href="javascript:void(0);" class="btn btn-transparent btn-sm" data-value="auto" ><i class="fa icon-leftarr fs1"></i></a>
+ 
+    {[ } ]}
+</script>
+</body>
+</html>

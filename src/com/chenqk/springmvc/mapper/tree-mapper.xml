@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chenqk.springmvc.entity.Tree">
+	<resultMap type="com.chenqk.springmvc.entity.Tree" id="treeMap">
+		<id property="id" column="id"/>
+		<result property="pid" column="pid"/>
+		<result property="text" column="text"/>
+		<result property="pid" column="pid"/>
+		<result property="attributes" column="attributes"/>
+	</resultMap>
+	
+	
+	<select id="getNodeById" resultType="treeMap"  parameterType="integer">
+		select * from tree where pid =#{id};
+	</select>
+	
+	<select id="getNodesById" resultType="treeMap"  parameterType="integer">
+		select * from tree where pid =#{pid};
+	</select>
+	
+	
+</mapper>

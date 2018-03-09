@@ -1,0 +1,88 @@
+
+/**<a>标签颜色白色*/
+a{color:#fff}
+.SHOW_BODY{
+background:rgba(51,51,51,0.4)	
+}
+.col-md-3{
+	font-size: 14px;
+	line-height: 20px;
+}
+.appTable_css{
+	float:left;
+	margin: 0px 0 0 0px;
+	
+}
+.appTypeTable_css{
+	float:left;
+	margin: 0px 0 0 px;
+}
+.app_small_css{
+	margin-left:25%;
+	
+}
+.app_small_css1{
+	margin-left:0px;
+	
+}
+.app_small_css2{
+	margin-left:40%;
+	
+}
+.14_font{
+	font-size: 20px;
+	color: ffffff;
+}
+.datepluginDiv{
+	width: 100%;
+	text-align: center;
+}
+.OneTable{
+	width: 100%;
+}
+.TwoTable{
+	width: 100%;
+	text-align: center;
+}
+.OneInput,.TwoInput{
+	width: 100%;
+	height: 25px;
+}
+
+/*******区域控件**********/
+.areaTitltA{
+	font-size: 25px;
+}
+/*******标签控件***********/
+.tagTitltA{
+	font-size: 25px;
+}
+
+/******列表*******/
+.gridDiv{
+	width: 100%;
+	text-align: center;
+}
+.gridTable{
+	width: 100%;
+	
+}
+.gridTableTitleTr{
+	line-height: 35px;
+}
+
+/**复写框架css*/
+
+legend{
+	line-height: 20px;	
+	margin-bottom: 10px;
+}
+#bgCol-md-4,#bgCol-md-8,#col-md-12{
+	background:none;
+}
+
+/****/
+#selectUserType{
+	position:absolute;
+	right: 0px;
+}
